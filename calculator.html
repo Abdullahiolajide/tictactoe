@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+         section{
+             height: 70vh;
+             background-color: rgb(41, 38, 38);
+             width: 50vh;
+             border-radius: 10px;
+             border: 15px solid black;
+         }
+
+         #ip2{
+             
+             height: 35px;
+             width: 45vh;
+             border-bottom-left-radius: 12px;
+             border-bottom-right-radius: 12px;
+             border: 2px solid rgb(207, 247, 207);
+             background-color: rgb(207, 247, 207);
+             font-size: 25px;
+             text-align: right;
+         }
+
+         #ip1{
+             margin-top: 30px;
+             height: 35px;
+             width: 45vh;
+             border-top-left-radius: 12px;
+             border-top-right-radius: 12px;
+             border: 2px solid rgb(207, 247, 207);
+             background-color: rgb(207, 247, 207);
+             font-size: 25px;
+         }
+        
+         .design{
+             height: 35px;
+             width: 45px;
+             border: 1px solid gray;
+             color: white;
+             background-color: black;
+            border-radius: 12px;
+            font-size: 23px;
+            margin: 5px;
+            margin-top: 35px;
+            box-shadow: 0 0 3px;
+         }
+
+         .design:hover{
+             background-color: white;
+             color: black;
+         }
+
+         @media all and (max-width: 330px) {
+            .design{
+             height: 35px;
+             width: 45px;
+             border: none;
+             color: white;
+             background-color: black;
+            border-radius: 12px;
+            font-size: 23px;
+            margin: 3px;
+            margin-top: 35px;
+         }
+
+         section{
+             height: 75vh;
+             background-color: rgb(41, 38, 38);
+             width: 50vh;
+             border-radius: 10px;
+             border: 15px solid black;
+         }
+
+         }
+
+         
+    </style>
+
+    <center>
+        <section class="calculator">
+
+            <div style="height: 5px; width: 5px; border: 10px solid black; border-radius: 40%; position: absolute;">
+
+            </div>
+             <input type="" id="ip1" name="inpu">
+             <input type="" id="ip2" name="inp" placeholder="0">
+
+
+             <main>
+                <div>
+                   <input type="button" value="1" onclick="fiFunction()" class="design" id="num1">
+                   <input type="button" value="2" onclick="seFunction()" class="design">
+                   <input type="button" value="3" onclick="thFunction()" class="design">
+                    <input style="font-size: 20px; background-color: blue;" type="button" onclick="ip1.value = ip1.value.substring(ip1.value.length-1, 0)" value="DEL" class="design">
+                    <input type="button" value="AC" onclick="clea()" style="font-size: 20px; background-color: blue;" class="design">
+                </div>
+                <div>
+                    <input type="button" value="4" onclick="foFunction()" class="design">
+                    <input type="button" value="5" onclick="fwFunction()" class="design">
+                    <input type="button" value="6" onclick="siFunction()" class="design">
+                    <input type="button" value="+" onclick="plus()" class="design">
+                    <input type="button" value="-" onclick="minus()" class="design">
+                </div>
+                <div>
+                    <input type="button" value="7" onclick="sqFunction()" class="design">
+                    <input type="button" value="8" onclick="eiFunction()" class="design">
+                    <input type="button" value="9" onclick="niFunction()" class="design">
+                    <input type="button" value="x" onclick="multiply()" class="design">
+                    <input type="button" value="/" onclick="division()" class="design">
+                   
+                </div>
+                <div>
+                    <input type="button" value="0" onclick="myFunction()" class="design">
+                    <input type="button" value="." onclick="dot()" class="design">
+                    <input type="button" value="Ans" onclick="answeri()" class="design">
+                    <input type="button" value="*10" onclick="answerii()" class="design">
+                    <input type="button" onclick="solve()" value="=" class="design">
+                </div>
+             </main>
+        </section>
+    </center>
+
+
+
+    <script>
+         var ans = ip2.value;
+
+         
+
+         const answerier = ()=>{
+             ip1.value + ip.value;
+            //ip1.value +=ip2.value
+          }
+
+         const answeri = ()=>{
+            // ip1.value = ip2.value;
+            ip1.value +=ip2.value
+          }
+          const answerii = ()=>{
+            ip1.value +="*(10)";
+          }
+      
+        const solve = ()=>{
+            ip2.value = eval(ip1.value);
+        }
+
+        const clea = ()=>{
+             ip1.value = ('');
+             ip2.value = ('');
+           
+        }
+        
+         const dot = ()=>{
+            ip1.value +='.';
+          }
+
+          const division = ()=>{
+            ip1.value +='/';
+          }
+         const multiply = ()=>{
+            ip1.value +='*';
+          }
+         const minus = ()=>{
+            ip1.value +='-';
+          }
+
+        const plus = ()=>{
+            ip1.value +='+';
+          }
+         const myFunction = ()=>{
+            ip1.value +=0;
+          }
+
+          const fiFunction = ()=>{
+            ip1.value +=1;
+              
+          }
+
+          const seFunction = ()=>{
+            ip1.value +=2;
+          }
+
+          const thFunction = ()=>{
+            ip1.value +=3;
+          }
+          
+          const foFunction = ()=>{
+            ip1.value +=4;
+          }
+          
+          const fwFunction = ()=>{
+            ip1.value +=5;
+          }
+
+          const siFunction = ()=>{
+            ip1.value +=6;
+          }
+          
+          const sqFunction = ()=>{
+            ip1.value +=7;
+          }
+
+          const eiFunction = ()=>{
+            ip1.value +=8;
+          }
+
+          const niFunction = ()=>{
+            ip1.value +=9;
+          }
+    </script>
+</body>
+</html>
