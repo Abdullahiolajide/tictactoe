@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+         <style>
+             body{
+                 background: blck;
+             }
+                .btn1{
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    border-color: black;
+                    font-size: 20px;
+                    color: green;
+                    background: #000;
+                }
+
+                .inp{
+                    width: 2in;
+                    border-radius: 50px;
+                    border: 1px solid white;
+                    background: transparent;
+                    color: white;
+                    text-align: center;
+                    height: 30px;
+                    margin-bottom: 10px;
+                  
+                }
+
+                .btn2{
+                    background: green;
+                    border: none;
+                    padding: 10px;
+                    width: 80px;
+                    border-radius: 50px;
+                    color: white;
+                    margin: 20px;
+                    font-size: 21px;
+
+                }
+
+                .score{
+                       margin-bottom: -20px;
+                       color: white;
+                       font-size: 26px;
+                      
+                       
+                }
+
+                .cscore{
+                    background-color: rgb(39, 34, 34); 
+                    height: 35px;
+                    border: 3px solid rgb(0, 255, 55); 
+                    width: 7%;
+                    margin-top: 20px;
+                    border-bottom-left-radius: 60%;
+                    border-bottom-right-radius: 60%;
+                    border-top-left-radius: 2px;
+                    border-top-right-radius: 2px;
+                    font-weight: bold;
+                }
+         </style>
+
+
+<!-- flaviocopes -->
+    <center>
+        <section >
+               <main>
+                   <input type="text" placeholder="Player1" class="inp" id="player1"> <br>
+                   <input type="text" placeholder="Player2" class="inp" id="player2"> <br>
+               </main>
+
+            <main onload="this.disabled = true;">
+
+                <button class="btn2" onclick="players()" id="start">Start</button> <br>
+
+                     <div id="info1" style="color: white;"></div>
+                     <div id="info2"  style="color: white;"></div>
+
+               <table id="myTable">
+                <tr>
+                    <td><button class="btn1" onclick="insert(event); "></button></td>
+                    <td><button class="btn1" onclick="insert(event); "></button></td>
+                    <td><button class="btn1" onclick="insert(event); "></button></td>
+                   </tr>
+                        
+                                    
+    
+                        <tr>
+                            <td><button class="btn1" onclick="insert(event); "></button></td>
+                            <td><button class="btn1" onclick="insert(event); "></button></td>
+                            <td><button class="btn1" onclick="insert(event); "></button></td>
+                        </tr>
+    
+                       
+    
+                        <tr>
+                            <td><button class="btn1" onclick="insert(event); "></button></td>
+                            <td><button class="btn1" onclick="insert(event); "></button></td>
+                            <td><button class="btn1" onclick="insert(event); "></button></td>
+                        </tr>
+               </table>
+            </main>
+
+             <div class="cscore">
+                 <span class="score" id="count">0</span> <span class="score">:</span> <span class="score" id="count2">0</span>
+             </div>
+
+             <button onclick="cl(event)">Replay</button>
+             <div id="draw">0</div>
+        </section>
+    </center>
+
+
+    <script>
+                var firstp = player1.value;
+                var Secondp = player2.value;
+                var turncount = 0;
+                
+                
+                const cl = (e) =>{ 
+                          
+                        myTable.rows[0].cells[0].getElementsByTagName('button')[0].innerText = '';
+                        myTable.rows[0].cells[1].getElementsByTagName('button')[0].innerText = '';
+                        myTable.rows[0].cells[2].getElementsByTagName('button')[0].innerText = '';
+                        myTable.rows[1].cells[0].getElementsByTagName('button')[0].innerText = '';
+                        myTable.rows[1].cells[1].getElementsByTagName('button')[0].innerText = '';
+                        myTable.rows[1].cells[2].getElementsByTagName('button')[0].innerText = '';
+                        myTable.rows[2].cells[0].getElementsByTagName('button')[0].innerText = '';
+                        myTable.rows[2].cells[1].getElementsByTagName('button')[0].innerText = '';
+                        myTable.rows[2].cells[2].getElementsByTagName('button')[0].innerText = '';
+
+                      
+                }
+
+              
+
+              const insert = e =>{
+
+                // const buttonn = document.querySelectorAll('button')[0].innerText;
+                // buttonn.disabled = true;
+
+      
+        turncount++;
+        if (firstp == '' || Secondp == '') {
+        //   e.target.innerText = '';
+            //e.target.innerText=();
+        }
+        else if (turncount % 2 == 0){
+            // e.target.innerText = 'X ';
+            e.target.innerText='O';
+            //count2.innerText++;
+            
+
+        }else{
+            e.target.innerText='X';
+            // ++count.innerText;
+            
+            }
+
+            if (myTable.rows[0].cells[0].getElementsByTagName('button')[0].innerText == 'X'
+            && myTable.rows[0].cells[1].getElementsByTagName('button')[0].innerText == 'X'
+            && myTable.rows[0].cells[2].getElementsByTagName('button')[0].innerText == 'X'
+                                            ||
+            myTable.rows[1].cells[0].getElementsByTagName('button')[0].innerText == 'X'
+            && myTable.rows[1].cells[1].getElementsByTagName('button')[0].innerText == 'X'
+            && myTable.rows[1].cells[2].getElementsByTagName('button')[0].innerText == 'X'
+
+                                             ||
+            myTable.rows[2].cells[0].getElementsByTagName('button')[0].innerText == 'X'
+            && myTable.rows[2].cells[1].getElementsByTagName('button')[0].innerText == 'X'
+            && myTable.rows[2].cells[2].getElementsByTagName('button')[0].innerText == 'X'
+                                       ||
+
+            myTable.rows[0].cells[0].getElementsByTagName('button')[0].innerText == 'X'
+            && myTable.rows[1].cells[0].getElementsByTagName('button')[0].innerText == 'X'
+            && myTable.rows[2].cells[0].getElementsByTagName('button')[0].innerText == 'X'
+            
+
+                        ||
+            myTable.rows[0].cells[1].getElementsByTagName('button')[0].innerText == 'X'
+            && myTable.rows[1].cells[1].getElementsByTagName('button')[0].innerText == 'X'
+            && myTable.rows[2].cells[1].getElementsByTagName('button')[0].innerText == 'X'
+
+            ||
+            myTable.rows[0].cells[2].getElementsByTagName('button')[0].innerText == 'X'
+            && myTable.rows[1].cells[2].getElementsByTagName('button')[0].innerText == 'X'
+            && myTable.rows[2].cells[2].getElementsByTagName('button')[0].innerText == 'X'
+
+            ||
+            myTable.rows[0].cells[0].getElementsByTagName('button')[0].innerText == 'X'
+            && myTable.rows[1].cells[1].getElementsByTagName('button')[0].innerText == 'X'
+            && myTable.rows[2].cells[2].getElementsByTagName('button')[0].innerText == 'X'
+
+            ||
+            myTable.rows[0].cells[2].getElementsByTagName('button')[0].innerText == 'X'
+            && myTable.rows[1].cells[1].getElementsByTagName('button')[0].innerText == 'X'
+            && myTable.rows[2].cells[0].getElementsByTagName('button')[0].innerText == 'X') { 
+           
+           
+                count.innerText++;
+            console.log(1);
+            alert(1);
+                   }
+
+
+                 else if (myTable.rows[0].cells[0].getElementsByTagName('button')[0].innerText == 'O'
+            && myTable.rows[0].cells[1].getElementsByTagName('button')[0].innerText == 'O'
+            && myTable.rows[0].cells[2].getElementsByTagName('button')[0].innerText == 'O'
+                                            ||
+            myTable.rows[1].cells[0].getElementsByTagName('button')[0].innerText == 'O'
+            && myTable.rows[1].cells[1].getElementsByTagName('button')[0].innerText == 'O'
+            && myTable.rows[1].cells[2].getElementsByTagName('button')[0].innerText == 'O'
+
+                                             ||
+            myTable.rows[2].cells[0].getElementsByTagName('button')[0].innerText == 'O'
+            && myTable.rows[2].cells[1].getElementsByTagName('button')[0].innerText == 'O'
+            && myTable.rows[2].cells[2].getElementsByTagName('button')[0].innerText == 'O'
+                                       ||
+
+            myTable.rows[0].cells[0].getElementsByTagName('button')[0].innerText == 'O'
+            && myTable.rows[1].cells[0].getElementsByTagName('button')[0].innerText == 'O'
+            && myTable.rows[2].cells[0].getElementsByTagName('button')[0].innerText == 'O'
+            
+
+                        ||
+            myTable.rows[0].cells[1].getElementsByTagName('button')[0].innerText == 'O'
+            && myTable.rows[1].cells[1].getElementsByTagName('button')[0].innerText == 'O'
+            && myTable.rows[2].cells[1].getElementsByTagName('button')[0].innerText == 'O'
+
+            ||
+            myTable.rows[0].cells[2].getElementsByTagName('button')[0].innerText == 'O'
+            && myTable.rows[1].cells[2].getElementsByTagName('button')[0].innerText == 'O'
+            && myTable.rows[2].cells[2].getElementsByTagName('button')[0].innerText == 'O'
+
+            ||
+            myTable.rows[0].cells[0].getElementsByTagName('button')[0].innerText == 'O'
+            && myTable.rows[1].cells[1].getElementsByTagName('button')[0].innerText == 'O'
+            && myTable.rows[2].cells[2].getElementsByTagName('button')[0].innerText == 'O'
+
+            ||
+            myTable.rows[0].cells[2].getElementsByTagName('button')[0].innerText == 'O'
+            && myTable.rows[1].cells[1].getElementsByTagName('button')[0].innerText == 'O'
+            && myTable.rows[2].cells[0].getElementsByTagName('button')[0].innerText == 'O') { 
+            
+            
+                count2.innerText++;
+            alert(2);
+                   }
+
+                 else if (e.target.innerText == 'X' || e.target.innerText == 'O') {
+                     console.log(1);
+                 }
+               
+                    draw.innerText++;
+                 if (draw.innerText == '9') {
+                     alert('DRAW');
+                 }
+
+
+               
+                
+        // winningCombinations = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9],
+    // [1, 5, 9], [3, 5, 7]];
+ }
+            
+          const players = ()=>{
+            //   location.reload();
+            var firstp = player1.value;
+            var Secondp = player2.value;
+            
+                 if (firstp == '' || Secondp == '') {
+                    
+                     info1.innerText =  ' finish insert before game start ';
+                     info2.innerText =  ' finish insert before game start';
+                 }else{
+                    
+                    info1.innerText = firstp + ' your sign is "X" you can start';
+                     info2.innerText = Secondp +'  your sign is "O" you can start';
+                 }
+                
+                }
+
+
+              
+    </script>
+</body>
+</html>
